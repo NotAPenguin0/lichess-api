@@ -59,3 +59,10 @@ pub async fn oauth2_login(scopes: &[&str]) -> Result<AccessToken> {
     // Note that these access tokens are long lived, and can probably be (safely) cached.
     exchange_token(&client, pkce_verifier, auth_code).await
 }
+
+/// Revoke token.
+pub async fn logout(client: &reqwest::Client, token: AccessToken) -> anyhow::Result<reqwest::Response> {
+    Ok(client.delete(reqwest::Url::parse("https://lichess.org/api/token")?)
+        .bearer_auth(token.secret())
+        .send().await?)
+}
