@@ -1,0 +1,13 @@
+[package]
+name = "lichess"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.66"
+oauth2 = "4.3.0"
+reqwest = "0.11.13"
+local-auth = { git = "https://github.com/NotAPenguin0/local-auth" }
+tokio = { version = "1.22.0", features = ["full"] }
+futures = "0.3.25"
+
