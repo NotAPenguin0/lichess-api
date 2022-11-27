@@ -4,7 +4,7 @@ use tokio;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    let client = lichess::Lichess::new()?;
+    let client = lichess::Lichess::new().await?;
 
     Ok(())
 }
